@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "KbTJkAlNWCHukXllS8t8OuYik1RLzY+ov26iiyUBzmI=",
+  "Source": "Sportradar API 1",
+  "BasePath": "_content/Sportradar API 1",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
