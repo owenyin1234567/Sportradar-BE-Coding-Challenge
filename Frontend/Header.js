@@ -97,31 +97,7 @@ function ResetTimer()
 function LoadSidebarwithCoins()
 {
     //console.log("function LoadSidebarwithCoins start");
-    
-    var allCoins = GetAllCoinsfromString(GetCookie("FollowedCoins"));
-
-    //console.log("allCoins ",allCoins);
-
-    allCoins.forEach(Coin => {
-
-        if(Coin != "")
-        {
-          const node = document.createElement("a");
-          node.id = Coin;
-
-          // Create a text node:
-          node.innerHTML = Coin;
-
-          //verlinkt die Website beim erstellen der Node auf die entsprechende Coin
-          node.href = "https://cryptoxchange22.web.app/html/ViewData?Coin="+Coin;
-
-          //console.log("https://cryptoxchange22.web.app/html/ViewData?Coin=+",Coin)
-          //console.log("node",node);
-
-          // Append the text node to the node:
-          var mySidebar = document.getElementById("mySidebar")
-          mySidebar.appendChild(node);
-        }                
-      });
+        
+      
 }
 
