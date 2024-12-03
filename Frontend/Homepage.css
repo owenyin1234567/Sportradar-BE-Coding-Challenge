@@ -1,0 +1,338 @@
+/*#region*/ /*Website Framework*/
+body{
+	font-family: sans-serif;
+	background-color: #ccc !important;
+}
+
+
+button{
+	
+	height: 50px;
+	width: 50px;
+}
+
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "montserrat", sans-serif;
+}
+
+
+#text-size-label{
+	color:black;
+	font-size: 16px;
+}
+
+#overview{
+	float: left;
+	margin-left: 10px;
+}
+
+
+
+#Logo{
+	text-decoration: #f1f1f1;
+	margin-left: 70 px;
+	height: 50px;
+	font-size: 30px;
+}
+
+.main-Content{
+	/*padding-top: 140px;
+	margin-left: 50px;
+	margin-right: 50px;
+	background-color:#f1f1f1;*/
+	height:100%;
+	min-height: 600px;;
+
+}
+
+
+#main-Content-background{
+		background-color:teal;
+		height: 550px;
+}
+
+#headline{
+		padding-top: 50px;
+		margin-left: 60px;
+		margin-right: 60px;
+		color:white;
+		transform: translateY(30px);
+}
+
+#easy-trade-area{
+		margin-left: 60px;
+		margin-right: 60px;
+		margin-top: 40px;
+		padding: 30px;
+		padding-left: 60px;
+		background-color: #fff;
+		height: 200px;
+		/*margin-left: 20px;
+		margin-left: 20px*/
+}
+
+
+#easy-trade-area-function-content{
+		margin-top: 20px;
+}
+
+#I-want-to-spend{
+		font-size: 18px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		color:#818181
+}
+
+#I-want-to-buy{
+		font-size: 18px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		color:#818181
+}
+	
+#spendamount{
+		font-size:20px ;
+		height: 40px;
+		width: 200px;
+		/*background-color: #818181;*/
+		border-radius: 5%;
+}
+#buybutton{
+		font-size:20px;
+		font-weight:bold;
+		height: 50px;
+		width: 100px;
+		border-radius: 10%;
+		margin-left: 10px;
+}
+
+#marketplace-button{
+	font-size:20px;
+	font-weight:bold;
+	height: 70px;
+	width: 150px;
+	border-radius: 10%;
+	margin-left: 10px;
+}
+	
+#FiatCurrencySelection{
+		font-size:20px ;
+		font-weight:bold;
+		height:40px;
+		width:100px;
+		margin-left: 0%;
+		/*background-color: #818181;*/
+}
+#CryptoCurrencySelection{
+		font-weight:bold;
+		font-size:20px ;
+		height:40px;
+		width:100px;
+		margin-left: 25px;
+		/*background-color: #818181;*/
+}
+
+#I-want-to-buy{
+		margin-left: 205px;
+}
+
+/*#endregion*/
+
+/*#region*/ /*crypto-list-elements*/
+
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-top: 100px;
+    margin-left: 60px;
+    margin-right: 60px;
+    width: calc(100% - 120px);
+
+}
+
+tr{
+    border: black 1px solid;
+}
+
+th{
+    cursor: pointer;
+}
+  
+th, td{
+    text-align: left;
+    padding: 16px;
+}
+  
+
+/*#region*/ /*crypto-list-elements*/
+#crypto-list{
+    margin-top: 100px;
+    margin-left: 60px;
+    margin-right: 60px;
+    width: calc(100% - 120px);
+
+}
+
+/*#endregion*/
+
+/*#region*/ /*crypto-list-elements*/
+#Game-list-elements{
+    height: 50px;
+	font-weight: 500;
+    background-color: #fff;
+}
+	
+#Game-list-elements:hover{
+	background-color: #ccc;
+}
+
+#Game-list-elements td:nth-child(1){
+	width: 40%;
+}
+	
+#Game-list-elements td:nth-child(2){
+    width: 10%;
+}
+	
+#Game-list-elements td:nth-child(3){
+    width: 10%;
+}
+	
+#Game-list-elements td:nth-child(4){
+    width: 10%;
+}
+#Game-list-elements td:nth-child(5){
+    width: 10%;
+}
+
+.Game-list-item{
+	margin-top: 0px;
+	height: 50px;
+	width: 100%;
+	font-weight: 500;
+	background-color: #fff;
+}
+.Game-list-item:hover{
+	background-color: #ccc;
+}
+.Game-list-item td:nth-child(1){
+	width: 20%;
+}
+	
+.Game-list-item td:nth-child(2){
+    width: 10%;
+}
+	
+.Game-list-item td:nth-child(3){
+    width: 10%;
+}
+	
+.Game-list-item td:nth-child(4){
+    width: 15%;
+}
+.Game-list-item td:nth-child(5){
+    width: 20%;
+}
+
+
+
+#main-Content-background-2{
+		background-color: #fff;
+		height: 800px;
+}
+
+.main-Content-background-2-text{
+	margin-left: 60px;
+	margin-right: 60px;
+	font-size: 27px;
+}
+
+#main-Content-background-2-headline-1{
+	padding-top: 30px;
+	color: teal;
+	font-size: 40px;
+	margin-left: 60px;
+}
+
+#main-Content-background-3{
+	display : flex;
+	padding-top: 80px;
+	background-color: #222222;
+	height:850px;
+	width: 100%;
+}
+
+.main-Content-background-3-text{
+	margin-bottom: 50px;
+	color: #fff;
+	font-size: 30px;
+}
+
+#main-Content-background-3-phone-mock-up-img{
+	margin-left: 220px;
+}
+
+#main-Content-background-3-text-content{
+	width: 40%;
+	margin-left: 10%;
+}
+
+#main-Content-background-3-img-content{
+	width: 40%;
+}
+
+#main-Content-background-download-mobile-app{
+	width: 40%;
+	font-size: 20px;
+	background-color: #222222;
+	color:#fff ;
+}
+
+#main-Content-background-3-headline{
+	margin-bottom: 80px;
+	color: teal;
+	font-size: 40px;
+	font-weight:bold;
+
+}
+
+#main-Content-background-3-text-low-part{
+	display: flex;
+	color: #fff;
+	margin-top: 10%;
+	height: 20%;
+}
+
+
+#main-Content-background-3-text-low-part-right{
+	width: 50%;
+}
+
+#main-Content-background-3-text-low-part-left{
+	width: 50%;
+
+}
+
+.main-Content-background-3-text-low-part-left-text{
+	font-size: 20px;
+
+}
+
+.main-Content-background-3-text-low-part-right-text{
+	font-size: 20px;
+
+}
+
+#main-Content-background-3-text-low-part-left-headline{
+	color: teal;
+	font-size: 50px;
+}
+
+#main-Content-background-3-text-low-part-right-headline{
+	color: teal;
+	font-size: 50px;
+}
