@@ -6,4 +6,4 @@ Instruction:
 - insert my Frontend files into your htdocs
 ------------------------------------------------------
 - DB Design scheme
-- ![alt text](https://github.com/owenyin1234567/Sportradar-BE-Coding-Challenge/Blank_diagram.jpeg?raw=true)
+- (https://github.com/owenyin1234567/Sportradar-BE-Coding-Challenge/Blank_diagram.jpeg?raw=true)
