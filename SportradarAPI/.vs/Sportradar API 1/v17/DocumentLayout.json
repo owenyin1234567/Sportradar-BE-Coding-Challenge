@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\owen\\Documents\\GitHub\\Sportradar-BE-Coding-Challenge\\SportradarAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|c:\\users\\owen\\documents\\github\\sportradar-be-coding-challenge\\sportradarapi\\sportradar api 1\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|solutionrelative:sportradar api 1\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|c:\\users\\owen\\documents\\github\\sportradar-be-coding-challenge\\sportradarapi\\sportradar api 1\\model\\season.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|solutionrelative:sportradar api 1\\model\\season.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|c:\\users\\owen\\documents\\github\\sportradar-be-coding-challenge\\sportradarapi\\sportradar api 1\\model\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|solutionrelative:sportradar api 1\\model\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|c:\\users\\owen\\documents\\github\\sportradar-be-coding-challenge\\sportradarapi\\sportradar api 1\\model\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|solutionrelative:sportradar api 1\\model\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|c:\\users\\owen\\documents\\github\\sportradar-be-coding-challenge\\sportradarapi\\sportradar api 1\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|solutionrelative:sportradar api 1\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|c:\\users\\owen\\documents\\github\\sportradar-be-coding-challenge\\sportradarapi\\sportradar api 1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|solutionrelative:sportradar api 1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|c:\\users\\owen\\documents\\github\\sportradar-be-coding-challenge\\sportradarapi\\sportradar api 1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|solutionrelative:sportradar api 1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|c:\\users\\owen\\documents\\github\\sportradar-be-coding-challenge\\sportradarapi\\sportradar api 1\\model\\championship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,28 +43,8 @@
       "RelativeMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|solutionrelative:sportradar api 1\\model\\sport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|c:\\users\\owen\\documents\\github\\sportradar-be-coding-challenge\\sportradarapi\\sportradar api 1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|solutionrelative:sportradar api 1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|c:\\users\\owen\\documents\\github\\sportradar-be-coding-challenge\\sportradarapi\\sportradar api 1\\model\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|solutionrelative:sportradar api 1\\model\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|c:\\users\\owen\\documents\\github\\sportradar-be-coding-challenge\\sportradarapi\\sportradar api 1\\model\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|solutionrelative:sportradar api 1\\model\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|c:\\users\\owen\\documents\\github\\sportradar-be-coding-challenge\\sportradarapi\\sportradar api 1\\model\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|solutionrelative:sportradar api 1\\model\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|c:\\users\\owen\\documents\\github\\sportradar-be-coding-challenge\\sportradarapi\\sportradar api 1\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|solutionrelative:sportradar api 1\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|c:\\users\\owen\\documents\\github\\sportradar-be-coding-challenge\\sportradarapi\\sportradar api 1\\model\\season.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A27216A-D391-4E84-9957-0E108C6298A0}|Sportradar API 1\\Sportradar API 1.csproj|solutionrelative:sportradar api 1\\model\\season.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,7 +62,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 1,
               "Title": "Season.cs",
               "DocumentMoniker": "C:\\Users\\owen\\Documents\\GitHub\\Sportradar-BE-Coding-Challenge\\SportradarAPI\\Sportradar API 1\\Model\\Season.cs",
               "RelativeDocumentMoniker": "Sportradar API 1\\Model\\Season.cs",
@@ -75,7 +75,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\owen\\Documents\\GitHub\\Sportradar-BE-Coding-Challenge\\SportradarAPI\\Sportradar API 1\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Sportradar API 1\\AppDbContext.cs",
@@ -88,33 +88,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\owen\\Documents\\GitHub\\Sportradar-BE-Coding-Challenge\\SportradarAPI\\Sportradar API 1\\appsettings.json",
               "RelativeDocumentMoniker": "Sportradar API 1\\appsettings.json",
               "ToolTip": "C:\\Users\\owen\\Documents\\GitHub\\Sportradar-BE-Coding-Challenge\\SportradarAPI\\Sportradar API 1\\appsettings.json",
               "RelativeToolTip": "Sportradar API 1\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-12-02T23:36:54.302Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "GameController.cs",
               "DocumentMoniker": "C:\\Users\\owen\\Documents\\GitHub\\Sportradar-BE-Coding-Challenge\\SportradarAPI\\Sportradar API 1\\Controllers\\GameController.cs",
               "RelativeDocumentMoniker": "Sportradar API 1\\Controllers\\GameController.cs",
               "ToolTip": "C:\\Users\\owen\\Documents\\GitHub\\Sportradar-BE-Coding-Challenge\\SportradarAPI\\Sportradar API 1\\Controllers\\GameController.cs",
               "RelativeToolTip": "Sportradar API 1\\Controllers\\GameController.cs",
-              "ViewState": "AgIAAKMAAAAAAAAAAAAuwOsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAMIAAAAAAAAAAAA9wNoAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-03T07:29:36.02Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "Result.cs",
               "DocumentMoniker": "C:\\Users\\owen\\Documents\\GitHub\\Sportradar-BE-Coding-Challenge\\SportradarAPI\\Sportradar API 1\\Model\\Result.cs",
               "RelativeDocumentMoniker": "Sportradar API 1\\Model\\Result.cs",
@@ -127,7 +127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "Game.cs",
               "DocumentMoniker": "C:\\Users\\owen\\Documents\\GitHub\\Sportradar-BE-Coding-Challenge\\SportradarAPI\\Sportradar API 1\\Model\\Game.cs",
               "RelativeDocumentMoniker": "Sportradar API 1\\Model\\Game.cs",
@@ -140,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "Team.cs",
               "DocumentMoniker": "C:\\Users\\owen\\Documents\\GitHub\\Sportradar-BE-Coding-Challenge\\SportradarAPI\\Sportradar API 1\\Model\\Team.cs",
               "RelativeDocumentMoniker": "Sportradar API 1\\Model\\Team.cs",
@@ -148,25 +148,24 @@
               "RelativeToolTip": "Sportradar API 1\\Model\\Team.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAIwAYAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T06:51:24.871Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-03T06:51:24.871Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\owen\\Documents\\GitHub\\Sportradar-BE-Coding-Challenge\\SportradarAPI\\Sportradar API 1\\Program.cs",
               "RelativeDocumentMoniker": "Sportradar API 1\\Program.cs",
               "ToolTip": "C:\\Users\\owen\\Documents\\GitHub\\Sportradar-BE-Coding-Challenge\\SportradarAPI\\Sportradar API 1\\Program.cs",
               "RelativeToolTip": "Sportradar API 1\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAwCAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-03T08:27:00.949Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "Sport.cs",
               "DocumentMoniker": "C:\\Users\\owen\\Documents\\GitHub\\Sportradar-BE-Coding-Challenge\\SportradarAPI\\Sportradar API 1\\Model\\Sport.cs",
               "RelativeDocumentMoniker": "Sportradar API 1\\Model\\Sport.cs",
@@ -174,12 +173,11 @@
               "RelativeToolTip": "Sportradar API 1\\Model\\Sport.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T23:49:10.361Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-02T23:49:10.361Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "Country.cs",
               "DocumentMoniker": "C:\\Users\\owen\\Documents\\GitHub\\Sportradar-BE-Coding-Challenge\\SportradarAPI\\Sportradar API 1\\Model\\Country.cs",
               "RelativeDocumentMoniker": "Sportradar API 1\\Model\\Country.cs",
@@ -187,12 +185,11 @@
               "RelativeToolTip": "Sportradar API 1\\Model\\Country.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T15:51:19.54Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-02T15:51:19.54Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "Championship.cs",
               "DocumentMoniker": "C:\\Users\\owen\\Documents\\GitHub\\Sportradar-BE-Coding-Challenge\\SportradarAPI\\Sportradar API 1\\Model\\Championship.cs",
               "RelativeDocumentMoniker": "Sportradar API 1\\Model\\Championship.cs",
@@ -200,8 +197,7 @@
               "RelativeToolTip": "Sportradar API 1\\Model\\Championship.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T15:51:05.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-02T15:51:05.937Z"
             }
           ]
         }

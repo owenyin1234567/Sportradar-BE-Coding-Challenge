@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 using Sportradar_API;
 using Sportradar_API.Model;
 using Sportradar_API_1.Model;
@@ -35,8 +36,6 @@ namespace Sportradar_API_1.Controllers
                 var Game = new Game();
                 while (reader.Read())
                 {
-                    Console.WriteLine("test" + reader.GetValue(1));
-                    Console.WriteLine("test" + reader.GetValue(1).GetType());
                     var DateTime = (DateTime)reader.GetValue(0);
                     var Date = DateOnly.FromDateTime(DateTime);
                     var StartingTime = TimeOnly.FromTimeSpan((TimeSpan)reader.GetValue(1));
@@ -69,8 +68,6 @@ namespace Sportradar_API_1.Controllers
                 var Game = new Game();
                 while (reader.Read())
                 {
-                    Console.WriteLine("test" + reader.GetValue(1));
-                    Console.WriteLine("test" + reader.GetValue(1).GetType());
                     var id = reader.GetInt32(0);
                     var DateTime = reader.GetDateTime(1);
                     var Date = DateOnly.FromDateTime(DateTime);
@@ -113,6 +110,8 @@ namespace Sportradar_API_1.Controllers
                 var Game = new Game();
                 while (reader.Read())
                 {
+                    #region cw debug
+                    /*
                     Console.WriteLine($"test 0 {reader.GetValue(0)} {reader.GetValue(0).GetType()}");
                     Console.WriteLine($"test 1 {reader.GetValue(1)} {reader.GetValue(1).GetType()}");
                     Console.WriteLine($"test 2 {reader.GetValue(2)} {reader.GetValue(2).GetType()}");
@@ -121,8 +120,8 @@ namespace Sportradar_API_1.Controllers
                     Console.WriteLine($"test 5 {reader.GetValue(5)} {reader.GetValue(5).GetType()}");
                     Console.WriteLine($"test 6 {reader.GetValue(6)} {reader.GetValue(6).GetType()}");
                     Console.WriteLine($"test 7 {reader.GetValue(7)} {reader.GetValue(7).GetType()}");
-                    Console.WriteLine($"test 8 {reader.GetValue(8)} {reader.GetValue(8).GetType()}");
-
+                    Console.WriteLine($"test 8 {reader.GetValue(8)} {reader.GetValue(8).GetType()}");*/
+                    #endregion 
 
                     var DateTime = (DateTime)reader.GetValue(0);
                     var Date = DateOnly.FromDateTime(DateTime);
@@ -130,7 +129,7 @@ namespace Sportradar_API_1.Controllers
                     var EndTime = TimeOnly.FromTimeSpan((TimeSpan)reader.GetValue(2));
                     var HomeTeamSlug = (string)reader.GetValue(3);
                     var AwayTeamSlug = (string)reader.GetValue(4);
-                    var SportID = int.Parse((string)reader.GetValue(5));
+                    var SportID = (int)reader.GetValue(5);
                     var HomeTeam = new Team(HomeTeamSlug, (string)reader.GetValue(6), null, null, null);
                     var AwayTeam = new Team(AwayTeamSlug, (string)reader.GetValue(7), null, null, null);
                     var Sport = new Sport(SportID, (string)reader.GetValue(8));
@@ -156,21 +155,30 @@ namespace Sportradar_API_1.Controllers
 
                 using var connection = new MySqlConnection(_configuration.GetConnectionString("Default"));
                 connection.Open();
-                using var command = new MySqlCommand("select * from Game", connection);
+                using var command = new MySqlCommand("SELECT Game.ID, Game.Dateofevent , Game.StartingTime , Game.EndTime,  " +
+                    "HomeTeam.Slug , AwayTeam.Slug , Sport.ID , " +
+                    "HomeTeam.name , AwayTeam.name , Sport.name   " +
+                    "FROM Game " +
+                    "INNER JOIN Sport ON Game.Sport_Game_FK = Sport.ID " +
+                    "INNER JOIN Team AS HomeTeam ON Game.HomeTeam_FK = HomeTeam.Slug " +
+                    "INNER JOIN Team AS AwayTeam ON Game.AwayTeam_FK = AwayTeam.Slug ",connection);
                 using var reader = command.ExecuteReader();
                 var Game = new Game();
                 while (reader.Read())
                 {
-                    Console.WriteLine("test" + reader.GetValue(1));
-                    Console.WriteLine("test" + reader.GetValue(1).GetType());
-                    var id = reader.GetInt32(0);
-                    var DateTime = reader.GetDateTime(1);
+                    var ID = (int)reader.GetValue(0); 
+                    var DateTime = (DateTime)reader.GetValue(1);
                     var Date = DateOnly.FromDateTime(DateTime);
-                    var StartingTime = TimeOnly.FromTimeSpan(reader.GetTimeSpan(2));
-                    var EndTime = TimeOnly.FromTimeSpan(reader.GetTimeSpan(3));
-                    var HomeTeam = new Team((string)reader.GetValue(4));
-                    var AwayTeam = new Team((string)reader.GetValue(5));
-                    Game = new Game(id, Date, StartingTime, EndTime, HomeTeam, AwayTeam, null, null, null);
+                    var StartingTime = TimeOnly.FromTimeSpan((TimeSpan)reader.GetValue(2));
+                    var EndTime = TimeOnly.FromTimeSpan((TimeSpan)reader.GetValue(3));
+                    var HomeTeamSlug = (string)reader.GetValue(4);
+                    var AwayTeamSlug = (string)reader.GetValue(5);
+                    var SportID = (int)reader.GetValue(6);
+                    var HomeTeam = new Team(HomeTeamSlug, (string)reader.GetValue(7), null, null, null);
+                    var AwayTeam = new Team(AwayTeamSlug, (string)reader.GetValue(8), null, null, null);
+                    var Sport = new Sport(SportID, (string)reader.GetValue(9));
+
+                    Game = new Game(ID, Date, StartingTime, EndTime, HomeTeam, AwayTeam, null, null, Sport);
                     ListGames.Add(Game);
                 }
                 connection.Close();
@@ -184,29 +192,31 @@ namespace Sportradar_API_1.Controllers
         }
 
         [HttpPost("AddGame")] //Test
-        public bool AddGame(DateOnly dateofevent, TimeOnly startingTime, TimeOnly endTime, string hometeamslug, string awayteamslug, int seasonid, int sportid)
+        public bool AddGame(DateOnly? dateofevent, TimeOnly? startingTime, TimeOnly? endTime, string? hometeamslug, string? awayteamslug, int? seasonid, int? resultid, int? sportid)
         {
             try
             {
                 using var connection = new MySqlConnection(_configuration.GetConnectionString("Default"));
                 connection.Open();
-                using var command = new MySqlCommand("INSERT INTO Game (Dateofevent, StartingTime, EndTime, HomeTeam_FK, AwayTeam_FK, Season_FK, Sport_Game_FK) VALUES (@dateofevent, @startingTime, @endTime, @hometeamslug, @awayteamslug, @seasonid,  @sportid);", connection);
+                using var command = new MySqlCommand("INSERT INTO Game (Dateofevent, StartingTime, EndTime, HomeTeam_FK, AwayTeam_FK, Season_FK, Result_FK, Sport_Game_FK) VALUES (@dateofevent, @startingTime, @endTime, @hometeamslug, @awayteamslug, @seasonid, @resultid, @sportid);", connection);
 
                 //Parameter Prepare
                 MySqlParameter Dateofevent = new MySqlParameter("@dateofevent", MySqlDbType.Date);
-                command.Parameters.AddWithValue("@dateofevent", Dateofevent);
+                command.Parameters.AddWithValue("@dateofevent", dateofevent);
                 MySqlParameter StartingTime = new MySqlParameter("@startingTime", MySqlDbType.Time);
-                command.Parameters.AddWithValue("@startingTime", StartingTime);
+                command.Parameters.AddWithValue("@startingTime", startingTime);
                 MySqlParameter EndTime = new MySqlParameter("@endTime", MySqlDbType.Time);
-                command.Parameters.AddWithValue("@endTime", EndTime);
+                command.Parameters.AddWithValue("@endTime", endTime);
                 MySqlParameter Hometeamslug = new MySqlParameter("@hometeamslug", MySqlDbType.VarChar, 256);
-                command.Parameters.AddWithValue("@hometeamslug", Hometeamslug);
+                command.Parameters.AddWithValue("@hometeamslug", hometeamslug);
                 MySqlParameter Awayteamslug = new MySqlParameter("@awayteamslug", MySqlDbType.VarChar, 256);
-                command.Parameters.AddWithValue("@awayteamslug", Awayteamslug);
-                MySqlParameter Seasonid = new MySqlParameter("@seasonid", MySqlDbType.Time);
-                command.Parameters.AddWithValue("@seasonid", Seasonid);
-                MySqlParameter Sportid = new MySqlParameter("@sportid", MySqlDbType.Time);
-                command.Parameters.AddWithValue("@sportid", Sportid);
+                command.Parameters.AddWithValue("@awayteamslug", awayteamslug);
+                MySqlParameter Seasonid = new MySqlParameter("@seasonid", MySqlDbType.Int32);
+                command.Parameters.AddWithValue("@seasonid", seasonid);
+                MySqlParameter Resultid = new MySqlParameter("@resultid", MySqlDbType.Int32);
+                command.Parameters.AddWithValue("@resultid", resultid);
+                MySqlParameter Sportid = new MySqlParameter("@sportid", MySqlDbType.Int32);
+                command.Parameters.AddWithValue("@sportid", sportid);
 
                 command.Prepare();
                 int success = command.ExecuteNonQuery();
