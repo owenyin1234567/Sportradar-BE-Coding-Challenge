@@ -18,7 +18,7 @@ AddGame Method!
 - Starting/EndTime format HH:MM
 
 Check the ConnectionString incase mysql doesnt connect!
-
+-------------------------------------------------------------------
 sql section:
 DROP TABLE IF EXISTS Game;
 DROP TABLE IF EXISTS Result;
