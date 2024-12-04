@@ -88,7 +88,7 @@ namespace Sportradar_API_1.Controllers
             }
         }
 
-        [HttpGet("GetGameWithResultandSeasonById")] // implememnt
+        [HttpGet("GetGameWithResultandSeasonById")] 
         public Game GetGameWithResultandSeasonById(int id)
         {
             try
@@ -146,7 +146,7 @@ namespace Sportradar_API_1.Controllers
             }
         }
 
-        [HttpGet("GetAllGamesWithResultandSeason")] //implement
+        [HttpGet("GetAllGamesWithResultandSeason")]
         public List<Game> GetAllGamesWithResultandSeason()
         {
             try
@@ -191,7 +191,7 @@ namespace Sportradar_API_1.Controllers
             }
         }
 
-        [HttpPost("AddGame")] //Test
+        [HttpPost("AddGame")]
         public bool AddGame(DateOnly? dateofevent, TimeOnly? startingTime, TimeOnly? endTime, string? hometeamslug, string? awayteamslug, int? seasonid, int? resultid, int? sportid)
         {
             try
