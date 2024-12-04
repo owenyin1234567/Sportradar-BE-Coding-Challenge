@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/nTnobKyM8E=",
+  "dgSpecHash": "8y+ljCRFl2A=",
   "success": true,
-  "projectFilePath": "C:\\Users\\owen\\Documents\\GitHub\\Sportradar-BE-Coding-Challenge\\Backend\\Sportradar API 1\\Sportradar API 1\\Sportradar API 1.csproj",
+  "projectFilePath": "C:\\Users\\owen\\Documents\\GitHub\\Sportradar-BE-Coding-Challenge\\SportradarAPI\\Sportradar API 1\\Sportradar API 1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\owen\\.nuget\\packages\\bouncycastle.cryptography\\2.3.1\\bouncycastle.cryptography.2.3.1.nupkg.sha512",
     "C:\\Users\\owen\\.nuget\\packages\\google.protobuf\\3.26.1\\google.protobuf.3.26.1.nupkg.sha512",

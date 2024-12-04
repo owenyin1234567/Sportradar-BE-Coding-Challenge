@@ -1,6 +1,14 @@
+using MySql.Data.MySqlClient;
+using Sportradar_API;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddTransient(_ =>
+    new MySqlConnection(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddCors(c => {
+    c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
