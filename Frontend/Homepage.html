@@ -55,70 +55,78 @@
         <div class="main-Content">
  
             <div id="main-Content-background-2">
+                <p id="main-Content-background-2-headline-1">SPORTRADAR – 2025 Coding Academy Vienna – Coding Challenge </p>
+                <p class="main-Content-background-2-text">Project: from Owen Yin</p>
+                <p class="main-Content-background-2-text">Game Display Application</p>
+
                 <table id="Game-list">
-                    <tr id="Game-list-elements">
-                        <th onclick="sortTable(0)">Name<i class='bx bxs-sort-alt'></i></th>
-                        <th onclick="sortTable(1)">Last Price<i class='bx bxs-sort-alt'></i></th>
-                        <th onclick="sortTable(2)">Lowest Price<i class='bx bxs-sort-alt'></i></th>
-                        <th onclick="sortTable(3)">Highest Price<i class='bx bxs-sort-alt'></i></th>
-                        <th onclick="sortTable(4)">Price Change<i class='bx bxs-sort-alt'></i></th>
-                    </tr>
-                    <tr class="Game-list-item">
-                        <td>BTC</td>
-                        <td>17.45 EUR</td>
-                        <td>12.85 EUR</td>
-                        <td>98.64 EUR</td>
-                        <td style="color:green;">46.645%<i class='bx bx-trending-up'></i></td>
-                    </tr>
-                    <tr class="Game-list-item">
-                        <td>ETH</td>
-                        <td>19.78 EUR</td>
-                        <td>8.74 EUR</td>
-                        <td>65.24 EUR</td>
-                        <td style="color:red;">-85.465%<i class='bx bx-trending-down'></i></td>
-                    </tr>
-                    <tr class="Game-list-item">
-                        <td>LTC</td>
-                        <td>987.78 EUR</td>
-                        <td>456.74 EUR</td>
-                        <td>4651.24 EUR</td>
-                        <td>45.78%<i class='bx bx-minus'></i></td>
-                    </tr>
-                    <tr class="Game-list-item">
-                        <td>ADA</td>
-                        <td>6.78 EUR</td>
-                        <td>4.74 EUR</td>
-                        <td>65.24 EUR</td>
-                        <td style="color:green;">70.465%<i class='bx bx-trending-up'></i></td>
-                    </tr>
-                    <tr class="Game-list-item">
-                        <td>DOT</td>
-                        <td>9156.78 EUR</td>
-                        <td>4669.74 EUR</td>
-                        <td>12123.24 EUR</td>
-                        <td style="color:red;">-85.147% <i class='bx bx-trending-down'></i></td>
-                    </tr>
-                    <tr class="Game-list-item">
-                        <td>DOGE</td>
-                        <td>85.11 EUR</td>
-                        <td>85.04 EUR</td>
-                        <td>147.85 EUR</td>
-                        <td>17.954%<i class='bx bx-minus'></i></td>
-                    </tr>
-                    <tr class="Game-list-item">
-                        <td>Coin1</td>
-                        <td>51.64 EUR</td>
-                        <td>98.3 EUR</td>
-                        <td>64.16 EUR</td>
-                        <td style="color:green;">46.325%<i class='bx bx-trending-up'></i></td>
-                    </tr>
-                    <tr class="Game-list-item">
-                        <td>Coin2</td>
-                        <td>46.10 EUR</td>
-                        <td>16.75 EUR</td>
-                        <td>98.23 EUR</td>
-                        <td style="color:green;">12.61%<i class='bx bx-trending-up'></i></td>
-                    </tr>
+                    <thead>
+                        <tr id="Game-list-elements">
+                            <th onclick="sortTable(0)">Name</th>
+                            <th onclick="sortTable(1)">Starting Time</th>
+                            <th onclick="sortTable(2)">Season_FK</th>
+                            <th onclick="sortTable(3)">Result_FK</th>
+                            <th onclick="sortTable(4)">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="Game-list-item">
+                            <td>A</td>
+                            <td>11:45</td>
+                            <td>12.85</td>
+                            <td>98.64</td>
+                            <td>1995-02-14</td>
+                        </tr>
+                        <tr class="Game-list-item">
+                            <td>B</td>
+                            <td>19:50</td>
+                            <td>8.74</td>
+                            <td>65.24</td>
+                            <td>1996-02-14</td>
+                        </tr>
+                        <tr class="Game-list-item">
+                            <td>C</td>
+                            <td>6:12</td>
+                            <td>456.74</td>
+                            <td>4651.24</td>
+                            <td>1997-02-14</td>
+                        </tr>
+                        <tr class="Game-list-item">
+                            <td>AS</td>
+                            <td>6:59</td>
+                            <td>4.74</td>
+                            <td>65.24</td>
+                            <td>1998-02-14</td>
+                        </tr>
+                        <tr class="Game-list-item">
+                            <td>AT</td>
+                            <td>9:07</td>
+                            <td>4669.74</td>
+                            <td>12123.24</td>
+                            <td>1999-02-14</td>
+                        </tr>
+                        <tr class="Game-list-item">
+                            <td>BB</td>
+                            <td>8:11</td>
+                            <td>85.04</td>
+                            <td>147.85</td>
+                            <td>1995-02-15</td>
+                        </tr>
+                        <tr class="Game-list-item">
+                            <td>ASDF</td>
+                            <td>5:04</td>
+                            <td>98.3</td>
+                            <td>64.16</td>
+                            <td>1995-02-16</td>
+                        </tr>
+                        <tr class="Game-list-item">
+                            <td>OK</td>
+                            <td>6:10</td>
+                            <td>16.75</td>
+                            <td>98.23</td>
+                            <td>2002-11-08</td>
+                        </tr>
+                    </tbody>
                   </table>
             </div>
             </div>

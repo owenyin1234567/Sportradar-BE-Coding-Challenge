@@ -51,7 +51,7 @@ button{
 
 
 #main-Content-background{
-		background-color:teal;
+		background-color:blue;
 		height: 550px;
 }
 
@@ -76,69 +76,6 @@ button{
 }
 
 
-#easy-trade-area-function-content{
-		margin-top: 20px;
-}
-
-#I-want-to-spend{
-		font-size: 18px;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		color:#818181
-}
-
-#I-want-to-buy{
-		font-size: 18px;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		color:#818181
-}
-	
-#spendamount{
-		font-size:20px ;
-		height: 40px;
-		width: 200px;
-		/*background-color: #818181;*/
-		border-radius: 5%;
-}
-#buybutton{
-		font-size:20px;
-		font-weight:bold;
-		height: 50px;
-		width: 100px;
-		border-radius: 10%;
-		margin-left: 10px;
-}
-
-#marketplace-button{
-	font-size:20px;
-	font-weight:bold;
-	height: 70px;
-	width: 150px;
-	border-radius: 10%;
-	margin-left: 10px;
-}
-	
-#FiatCurrencySelection{
-		font-size:20px ;
-		font-weight:bold;
-		height:40px;
-		width:100px;
-		margin-left: 0%;
-		/*background-color: #818181;*/
-}
-#CryptoCurrencySelection{
-		font-weight:bold;
-		font-size:20px ;
-		height:40px;
-		width:100px;
-		margin-left: 25px;
-		/*background-color: #818181;*/
-}
-
-#I-want-to-buy{
-		margin-left: 205px;
-}
 
 /*#endregion*/
 
@@ -169,7 +106,7 @@ th, td{
   
 
 /*#region*/ /*crypto-list-elements*/
-#crypto-list{
+#Game-list{
     margin-top: 100px;
     margin-left: 60px;
     margin-right: 60px;
@@ -253,7 +190,7 @@ th, td{
 
 #main-Content-background-2-headline-1{
 	padding-top: 30px;
-	color: teal;
+	color: blue;
 	font-size: 40px;
 	margin-left: 60px;
 }
@@ -294,7 +231,7 @@ th, td{
 
 #main-Content-background-3-headline{
 	margin-bottom: 80px;
-	color: teal;
+	color: blue;
 	font-size: 40px;
 	font-weight:bold;
 
@@ -328,11 +265,11 @@ th, td{
 }
 
 #main-Content-background-3-text-low-part-left-headline{
-	color: teal;
+	color: blue;
 	font-size: 50px;
 }
 
 #main-Content-background-3-text-low-part-right-headline{
-	color: teal;
+	color: blue;
 	font-size: 50px;
 }
