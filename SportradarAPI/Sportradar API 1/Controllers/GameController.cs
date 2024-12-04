@@ -20,19 +20,16 @@ namespace Sportradar_API_1.Controllers
             //_context = context;
         }
 
-        [HttpGet("GetGame")]
         public Game GetGameById(int id)
         {
             try
             {
                 using var connection = new MySqlConnection(_configuration.GetConnectionString("Default"));
                 connection.Open();
-                using var command = new MySqlCommand("select * from Game where ID=@id", connection);
                 MySqlParameter idp = new MySqlParameter("@id", MySqlDbType.Int64);
                 command.Parameters.AddWithValue("@id", id);
                 command.Prepare();
                 using var reader = command.ExecuteReader();
-
                 var Game = new Game();
 
                 while (reader.Read())
@@ -56,8 +53,6 @@ namespace Sportradar_API_1.Controllers
             }
 
 
-                
-            
         }
 
 

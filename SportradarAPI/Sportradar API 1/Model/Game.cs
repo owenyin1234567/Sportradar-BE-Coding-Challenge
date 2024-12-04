@@ -6,7 +6,6 @@ namespace Sportradar_API_1.Model
 {
     public class Game
     {
-        [Key]
         public int ID { get; set; }
 
         public DateOnly? Dateofevent { get; set; }
@@ -21,7 +20,6 @@ namespace Sportradar_API_1.Model
 
         public Result? Result { get; set; }
 
-        public Game(int id, DateOnly? dateofevent, TimeOnly? startingTime, TimeOnly? endTime, Team? homeTeam, Team? awayTeam, Season? season, Result? result) 
         {
             ID = id;
             Dateofevent = dateofevent;
@@ -31,7 +29,6 @@ namespace Sportradar_API_1.Model
             AwayTeam = awayTeam;
             Season = season;
             Result = result;
-
         }
 
         public Game()
