@@ -1,8 +1,8 @@
 Instruction:
-- Download Xampp
+- Download Xampp at (https://www.apachefriends.org/de/index.html)
 - Start Xampp
 - Copy and Insert MySQL Queries from sql section into phpmyadmin and execute
-- start API sln (test done on swagger)
+- start Sportradar API sln (testing done on swagger)
 - insert my Frontend files into your htdocs
 - Open the Homepage.hmtml
 ------------------------------------------------------
@@ -14,7 +14,7 @@ Instruction:
 - DB: MySQL
 
 AddGame Method!
-- Dateofevent format yyyy-mm-dd
+- (dateonly)Dateofevent + (int)SpordID required
 - Starting/EndTime format HH:MM
 
 Check the ConnectionString incase mysql doesnt connect!
