@@ -19,7 +19,6 @@ namespace Sportradar_API_1.Controllers
         public GameController(IConfiguration configuration)
         {
             _configuration = configuration;
-            //_context = context;
         }
 
         [HttpGet("GetGameById")]
@@ -92,6 +91,7 @@ namespace Sportradar_API_1.Controllers
         [HttpGet("GetGameWithSportById")] 
         public Game GetGameWithSportById(int id)
         {   //returns single Game with Sport and Season Info by ID
+            //used by Homepage.html
             try
             {
                 using var connection = new MySqlConnection(_configuration.GetConnectionString("Default"));
@@ -193,73 +193,35 @@ namespace Sportradar_API_1.Controllers
         }
 
         [HttpPost("AddGame")]
-        public bool AddGame(DateOnly dateofevent, TimeOnly startingTime, TimeOnly endTime, string hometeamslug, string awayteamslug, int seasonid, int? resultid, int sportid)
+        public bool AddGame(DateOnly dateofevent, TimeOnly? startingTime, TimeOnly? endTime, string? hometeamslug, string? awayteamslug, int? seasonid, int? resultid, int sportid)
         {   //Adds Game by insert into mysql table
-            //returns if success then returns true
+            //returns true if sucessfull else returns false
             //not success returns false
             try
             {
-                /*
-                using var connection = new MySqlConnection(_configuration.GetConnectionString("Default")); 
-                connection.Open();
-                using var command = new MySqlCommand("INSERT INTO Game (Dateofevent, StartingTime, EndTime, HomeTeam_FK, AwayTeam_FK, Season_FK, Result_FK, Sport_Game_FK) VALUES (@dateofevent, @startingTime, @endTime, @hometeamslug, @awayteamslug, @seasonid, @resultid, @sportid);", connection);
-
-                //Parameter Prepare
-                command.Parameters.AddWithValue("@dateofevent", dateofevent);
-                command.Parameters.AddWithValue("@startingTime", startingTime);
-                command.Parameters.AddWithValue("@endTime", endTime);
-                command.Parameters.AddWithValue("@hometeamslug", hometeamslug);
-                command.Parameters.AddWithValue("@awayteamslug", awayteamslug);
-                command.Parameters.AddWithValue("@seasonid", seasonid);
-                command.Parameters.AddWithValue("@resultid", resultid);
-                command.Parameters.AddWithValue("@sportid", sportid);
 
 
-                command.Prepare();
-                var success = command.ExecuteNonQuery();
-                connection.Close();
-                if (success >= 1)
+                using (MySqlConnection connection = new MySqlConnection(
+                    _configuration.GetConnectionString("Default")))
                 {
-                    Console.WriteLine(true);
-                    return true;
+                    var command = new MySqlCommand("INSERT INTO Game (Dateofevent, StartingTime, EndTime, HomeTeam_FK, AwayTeam_FK, Season_FK, Result_FK, Sport_Game_FK) VALUES (@dateofevent, @startingTime, @endTime, @hometeamslug, @awayteamslug, @seasonid, @resultid, @sportid);", connection);
+                    connection.Open();
+
+                    //Parameter Prepare
+                    command.Parameters.AddWithValue("@dateofevent", dateofevent.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@startingTime", startingTime);
+                    command.Parameters.AddWithValue("@endTime", endTime);
+                    command.Parameters.AddWithValue("@hometeamslug", hometeamslug);
+                    command.Parameters.AddWithValue("@awayteamslug", awayteamslug);
+                    command.Parameters.AddWithValue("@seasonid", seasonid);
+                    command.Parameters.AddWithValue("@resultid", resultid);
+                    command.Parameters.AddWithValue("@sportid", sportid);
+
+                    command.Prepare();
+                    var rowsaffected = command.ExecuteNonQuery();
+                    if (rowsaffected >= 1) { return true; }
+                    else { return false; }
                 }
-                else
-                {
-                    Console.WriteLine(false);
-                    return false;
-                }*/
-                Console.WriteLine("dateofevent.ToString" + dateofevent.ToString("yyyy/MM/dd"));
-
-                using var connection = new MySqlConnection(_configuration.GetConnectionString("Default"));
-                connection.Open();
-                using var command = new MySqlCommand("INSERT INTO Game (Dateofevent, StartingTime, EndTime, HomeTeam_FK, AwayTeam_FK, Season_FK, Result_FK, Sport_Game_FK) VALUES (@dateofevent, @startingTime, @endTime, @hometeamslug, @awayteamslug, @seasonid, @resultid, @sportid);", connection);
-
-                //Parameter Prepare
-                Console.WriteLine(dateofevent);
-                Console.WriteLine(dateofevent.ToString("yyyy-MM-dd"));
-                command.Parameters.AddWithValue("@dateofevent", dateofevent.ToString("yyyy-MM-dd"));
-                command.Parameters.AddWithValue("@startingTime", startingTime);
-                command.Parameters.AddWithValue("@endTime", endTime);
-                command.Parameters.AddWithValue("@hometeamslug", hometeamslug);
-                command.Parameters.AddWithValue("@awayteamslug", awayteamslug);
-                command.Parameters.AddWithValue("@seasonid", seasonid);
-                command.Parameters.AddWithValue("@resultid", resultid);
-                command.Parameters.AddWithValue("@sportid", sportid);
-
-                command.Prepare();
-                int success = command.ExecuteNonQuery();
-                connection.Close();
-
-                if (success == 0)
-                {
-                    return false;
-                }
-                else if (success >= 1)
-                {
-                    return true;
-                }
-
-                return true;
             }
             catch (Exception ex)
             {
@@ -269,6 +231,59 @@ namespace Sportradar_API_1.Controllers
 
         }
 
+        [HttpPost("AddResult")]
+        public bool AddResult(int? homegoals, int? awaygoals, string? winner)
+        {    //returns true if sucessfull else returns false
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(
+    _configuration.GetConnectionString("Default")))
+                {
+                    using var command = new MySqlCommand("INSERT INTO result (homegoals, awaygoals, winner) VALUES ( @homegoals, @awaygoals, @winner);", connection);
+                    connection.Open();
+
+                    //Parameter Prepare
+                    if (homegoals == null)
+                    {
+                        command.Parameters.AddWithValue("@homegoals", DBNull.Value);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@homegoals", homegoals);
+                    }
+
+                    if (awaygoals == null)
+                    {
+                        command.Parameters.AddWithValue("@awaygoals", DBNull.Value);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@awaygoals", awaygoals);
+                    }
+
+                    if (winner == null)
+                    {
+                        command.Parameters.AddWithValue("@winner", DBNull.Value);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@winner", winner);
+                    }
+
+                    command.Prepare();
+                    var rowsaffected = command.ExecuteNonQuery();
+                    if (rowsaffected >= 1) { return true; }
+                    else { return false; }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception: {ex.Message}");
+                return false;
+            }
+
+        }
 
     }
 }

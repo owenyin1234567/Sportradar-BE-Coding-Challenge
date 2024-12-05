@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Sportradar API 1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aece3f00be53a27ae0ae9458eae14acc12cc62d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c9859082d2baddc0ae65c98289d0608fa3980271")]
 [assembly: System.Reflection.AssemblyProductAttribute("Sportradar API 1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Sportradar API 1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
