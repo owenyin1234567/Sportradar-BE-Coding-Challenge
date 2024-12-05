@@ -71,9 +71,10 @@ async function GetAllGamesLoaded() {
         const row = document.createElement("tr");
         const date = new Date(game.dateofevent);
         const day = date.getDay();
-        console.log(dayNames[day])
+        const formattedDate = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}, ${dayNames[day]}`;
+        console.log(formattedDate)
         row.innerHTML = `
-            <td>${dayNames[day]+"; "+game.dateofevent || "N/A"}</td>
+            <td>${game.dateofevent || "N/A"}</td>
             <td>${game.startingTime || "N/A"}</td>
             <td>${game.endTime || "N/A"}</td>
             <td>${game.homeTeam.name || "N/A"}</td>

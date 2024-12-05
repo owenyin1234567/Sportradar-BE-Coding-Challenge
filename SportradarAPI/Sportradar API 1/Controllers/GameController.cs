@@ -94,50 +94,52 @@ namespace Sportradar_API_1.Controllers
             //used by Homepage.html
             try
             {
-                using var connection = new MySqlConnection(_configuration.GetConnectionString("Default"));
-                connection.Open();
-                using var command = new MySqlCommand("SELECT Game.Dateofevent , Game.StartingTime , Game.EndTime,  " +
-                    "HomeTeam.Slug , AwayTeam.Slug , Sport.ID , " +
-                    "HomeTeam.name , AwayTeam.name , Sport.name   " +
-                    "FROM Game " +
-                    "INNER JOIN Sport ON Game.Sport_Game_FK = Sport.ID " +
-                    "INNER JOIN Team AS HomeTeam ON Game.HomeTeam_FK = HomeTeam.Slug " +
-                    "INNER JOIN Team AS AwayTeam ON Game.AwayTeam_FK = AwayTeam.Slug " +
-                    "where Game.ID = @id", connection);
-                MySqlParameter idp = new MySqlParameter("@id", MySqlDbType.Int64);
-                command.Parameters.AddWithValue("@id", id);
-                command.Prepare();
-                using var reader = command.ExecuteReader();
                 var Game = new Game();
-                while (reader.Read())
+                using (MySqlConnection connection = new MySqlConnection(
+                    _configuration.GetConnectionString("Default")))
                 {
-                    #region cw debug
-                    /*
-                    Console.WriteLine($"test 0 {reader.GetValue(0)} {reader.GetValue(0).GetType()}");
-                    Console.WriteLine($"test 1 {reader.GetValue(1)} {reader.GetValue(1).GetType()}");
-                    Console.WriteLine($"test 2 {reader.GetValue(2)} {reader.GetValue(2).GetType()}");
-                    Console.WriteLine($"test 3 {reader.GetValue(3)} {reader.GetValue(3).GetType()}");
-                    Console.WriteLine($"test 4 {reader.GetValue(4)} {reader.GetValue(4).GetType()}");
-                    Console.WriteLine($"test 5 {reader.GetValue(5)} {reader.GetValue(5).GetType()}");
-                    Console.WriteLine($"test 6 {reader.GetValue(6)} {reader.GetValue(6).GetType()}");
-                    Console.WriteLine($"test 7 {reader.GetValue(7)} {reader.GetValue(7).GetType()}");
-                    Console.WriteLine($"test 8 {reader.GetValue(8)} {reader.GetValue(8).GetType()}");*/
-                    #endregion 
+                    connection.Open();
+                    using var command = new MySqlCommand("SELECT Game.Dateofevent , Game.StartingTime , Game.EndTime,  " +
+                        "HomeTeam.Slug , AwayTeam.Slug , Sport.ID , " +
+                        "HomeTeam.name , AwayTeam.name , Sport.name   " +
+                        "FROM Game " +
+                        "INNER JOIN Sport ON Game.Sport_Game_FK = Sport.ID " +
+                        "INNER JOIN Team AS HomeTeam ON Game.HomeTeam_FK = HomeTeam.Slug " +
+                        "INNER JOIN Team AS AwayTeam ON Game.AwayTeam_FK = AwayTeam.Slug " +
+                        "where Game.ID = @id", connection);
+                    MySqlParameter idp = new MySqlParameter("@id", MySqlDbType.Int64);
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Prepare();
+                    using var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        #region cw debug
+                        /*
+                        Console.WriteLine($"test 0 {reader.GetValue(0)} {reader.GetValue(0).GetType()}");
+                        Console.WriteLine($"test 1 {reader.GetValue(1)} {reader.GetValue(1).GetType()}");
+                        Console.WriteLine($"test 2 {reader.GetValue(2)} {reader.GetValue(2).GetType()}");
+                        Console.WriteLine($"test 3 {reader.GetValue(3)} {reader.GetValue(3).GetType()}");
+                        Console.WriteLine($"test 4 {reader.GetValue(4)} {reader.GetValue(4).GetType()}");
+                        Console.WriteLine($"test 5 {reader.GetValue(5)} {reader.GetValue(5).GetType()}");
+                        Console.WriteLine($"test 6 {reader.GetValue(6)} {reader.GetValue(6).GetType()}");
+                        Console.WriteLine($"test 7 {reader.GetValue(7)} {reader.GetValue(7).GetType()}");
+                        Console.WriteLine($"test 8 {reader.GetValue(8)} {reader.GetValue(8).GetType()}");*/
+                        #endregion
 
-                    var DateTime = (DateTime)reader.GetValue(0);
-                    var Date = DateOnly.FromDateTime(DateTime);
-                    var StartingTime = TimeOnly.FromTimeSpan((TimeSpan)reader.GetValue(1));
-                    var EndTime = TimeOnly.FromTimeSpan((TimeSpan)reader.GetValue(2));
-                    var HomeTeamSlug = (string)reader.GetValue(3);
-                    var AwayTeamSlug = (string)reader.GetValue(4);
-                    var SportID = (int)reader.GetValue(5);
-                    var HomeTeam = new Team(HomeTeamSlug, (string)reader.GetValue(6), null, null, null);
-                    var AwayTeam = new Team(AwayTeamSlug, (string)reader.GetValue(7), null, null, null);
-                    var Sport = new Sport(SportID, (string)reader.GetValue(8));
+                        var DateTime = (DateTime)reader.GetValue(0);
+                        var Date = DateOnly.FromDateTime(DateTime);
+                        var StartingTime = TimeOnly.FromTimeSpan((TimeSpan)reader.GetValue(1));
+                        var EndTime = TimeOnly.FromTimeSpan((TimeSpan)reader.GetValue(2));
+                        var HomeTeamSlug = (string)reader.GetValue(3);
+                        var AwayTeamSlug = (string)reader.GetValue(4);
+                        var SportID = (int)reader.GetValue(5);
+                        var HomeTeam = new Team(HomeTeamSlug, (string)reader.GetValue(6), null, null, null);
+                        var AwayTeam = new Team(AwayTeamSlug, (string)reader.GetValue(7), null, null, null);
+                        var Sport = new Sport(SportID, (string)reader.GetValue(8));
 
-                    return Game = new Game(id, Date, StartingTime, EndTime, HomeTeam, AwayTeam, null, null, Sport);
-                }
-                connection.Close();
+                        return Game = new Game(id, Date, StartingTime, EndTime, HomeTeam, AwayTeam, null, null, Sport);
+                    }
+                }                
                 return Game;
             }
             catch (Exception ex)
@@ -154,35 +156,37 @@ namespace Sportradar_API_1.Controllers
             {
                 List<Game> ListGames = new List<Game>();
 
-                using var connection = new MySqlConnection(_configuration.GetConnectionString("Default"));
-                connection.Open();
-                using var command = new MySqlCommand("SELECT Game.ID, Game.Dateofevent , Game.StartingTime , Game.EndTime,  " +
-                    "HomeTeam.Slug , AwayTeam.Slug , Sport.ID , " +
-                    "HomeTeam.name , AwayTeam.name , Sport.name   " +
-                    "FROM Game " +
-                    "INNER JOIN Sport ON Game.Sport_Game_FK = Sport.ID " +
-                    "INNER JOIN Team AS HomeTeam ON Game.HomeTeam_FK = HomeTeam.Slug " +
-                    "INNER JOIN Team AS AwayTeam ON Game.AwayTeam_FK = AwayTeam.Slug ",connection);
-                using var reader = command.ExecuteReader();
-                var Game = new Game();
-                while (reader.Read())
+                using (MySqlConnection connection = new MySqlConnection(
+                    _configuration.GetConnectionString("Default")))
                 {
-                    var ID = (int)reader.GetValue(0);
-                    var DateTime = (DateTime)reader.GetValue(1);
-                    var Date = DateOnly.FromDateTime(DateTime);
-                    var StartingTime = TimeOnly.FromTimeSpan((TimeSpan)reader.GetValue(2));
-                    var EndTime = TimeOnly.FromTimeSpan((TimeSpan)reader.GetValue(3));
-                    var HomeTeamSlug = (string)reader.GetValue(4);
-                    var AwayTeamSlug = (string)reader.GetValue(5);
-                    var SportID = (int)reader.GetValue(6);
-                    var HomeTeam = new Team(HomeTeamSlug, (string)reader.GetValue(7), null, null, null);
-                    var AwayTeam = new Team(AwayTeamSlug, (string)reader.GetValue(8), null, null, null);
-                    var Sport = new Sport(SportID, (string)reader.GetValue(9));
+                    connection.Open();
+                    using var command = new MySqlCommand("SELECT Game.ID, Game.Dateofevent , Game.StartingTime , Game.EndTime,  " +
+                        "HomeTeam.Slug , AwayTeam.Slug , Sport.ID , " +
+                        "HomeTeam.name , AwayTeam.name , Sport.name   " +
+                        "FROM Game " +
+                        "INNER JOIN Sport ON Game.Sport_Game_FK = Sport.ID " +
+                        "INNER JOIN Team AS HomeTeam ON Game.HomeTeam_FK = HomeTeam.Slug " +
+                        "INNER JOIN Team AS AwayTeam ON Game.AwayTeam_FK = AwayTeam.Slug ", connection);
+                    using var reader = command.ExecuteReader();
+                    var Game = new Game();
+                    while (reader.Read())
+                    {
+                        var ID = (int)reader.GetValue(0);
+                        var DateTime = (DateTime)reader.GetValue(1);
+                        var Date = DateOnly.FromDateTime(DateTime);
+                        var StartingTime = TimeOnly.FromTimeSpan((TimeSpan)reader.GetValue(2));
+                        var EndTime = TimeOnly.FromTimeSpan((TimeSpan)reader.GetValue(3));
+                        var HomeTeamSlug = (string)reader.GetValue(4);
+                        var AwayTeamSlug = (string)reader.GetValue(5);
+                        var SportID = (int)reader.GetValue(6);
+                        var HomeTeam = new Team(HomeTeamSlug, (string)reader.GetValue(7), null, null, null);
+                        var AwayTeam = new Team(AwayTeamSlug, (string)reader.GetValue(8), null, null, null);
+                        var Sport = new Sport(SportID, (string)reader.GetValue(9));
 
-                    Game = new Game(ID, Date, StartingTime, EndTime, HomeTeam, AwayTeam, null, null, Sport);
-                    ListGames.Add(Game);
+                        Game = new Game(ID, Date, StartingTime, EndTime, HomeTeam, AwayTeam, null, null, Sport);
+                        ListGames.Add(Game);
+                    }
                 }
-                connection.Close();
                 return ListGames;
             }
             catch (Exception ex)
@@ -193,7 +197,7 @@ namespace Sportradar_API_1.Controllers
         }
 
         [HttpPost("AddGame")]
-        public bool AddGame(DateOnly dateofevent, TimeOnly? startingTime, TimeOnly? endTime, string? hometeamslug, string? awayteamslug, int? seasonid, int? resultid, int sportid)
+        public bool AddGame(DateOnly dateofevent, TimeOnly? startingTime, TimeOnly? endTime, string? hometeamslug, string? awayteamslug, int? seasonid, int? resultid, int? sportid)
         {   //Adds Game by insert into mysql table
             //returns true if sucessfull else returns false
             //not success returns false
