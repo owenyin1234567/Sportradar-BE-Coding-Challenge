@@ -17,6 +17,8 @@ AddGame Method!
 - (dateonly)Dateofevent + (int)SpordID required
 - Starting/EndTime format HH:MM
 
+GetGameWithSportById Method use int>=1
+
 Check the ConnectionString incase mysql doesnt connect!
 -------------------------------------------------------------------
 sql section:
