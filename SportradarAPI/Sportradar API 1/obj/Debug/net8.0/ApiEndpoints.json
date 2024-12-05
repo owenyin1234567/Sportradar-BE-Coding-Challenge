@@ -9,17 +9,17 @@
     "Parameters": [
       {
         "Name": "dateofevent",
-        "Type": "System.Nullable\u00601[[System.DateOnly, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "System.DateOnly",
         "IsRequired": false
       },
       {
         "Name": "startingTime",
-        "Type": "System.Nullable\u00601[[System.TimeOnly, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "System.TimeOnly",
         "IsRequired": false
       },
       {
         "Name": "endTime",
-        "Type": "System.Nullable\u00601[[System.TimeOnly, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "System.TimeOnly",
         "IsRequired": false
       },
       {
@@ -34,7 +34,7 @@
       },
       {
         "Name": "seasonid",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "System.Int32",
         "IsRequired": false
       },
       {
@@ -44,7 +44,7 @@
       },
       {
         "Name": "sportid",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],
@@ -82,8 +82,8 @@
   },
   {
     "ContainingType": "Sportradar_API_1.Controllers.GameController",
-    "Method": "GetAllGamesWithResultandSeason",
-    "RelativePath": "api/Game/GetAllGamesWithResultandSeason",
+    "Method": "GetAllGamesWithSport",
+    "RelativePath": "api/Game/GetAllGamesWithSport",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -128,8 +128,8 @@
   },
   {
     "ContainingType": "Sportradar_API_1.Controllers.GameController",
-    "Method": "GetGameWithResultandSeasonById",
-    "RelativePath": "api/Game/GetGameWithResultandSeasonById",
+    "Method": "GetGameWithSportById",
+    "RelativePath": "api/Game/GetGameWithSportById",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

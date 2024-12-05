@@ -82,7 +82,7 @@
         }
       }
     },
-    "/api/Game/GetGameWithResultandSeasonById": {
+    "/api/Game/GetGameWithSportById": {
       "get": {
         "tags": [
           "Game"
@@ -121,7 +121,7 @@
         }
       }
     },
-    "/api/Game/GetAllGamesWithResultandSeason": {
+    "/api/Game/GetAllGamesWithSport": {
       "get": {
         "tags": [
           "Game"

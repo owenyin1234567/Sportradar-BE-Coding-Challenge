@@ -5,6 +5,7 @@ using Mysqlx.Crud;
 using Sportradar_API;
 using Sportradar_API.Model;
 using Sportradar_API_1.Model;
+using System.Data;
 
 namespace Sportradar_API_1.Controllers
 {
@@ -23,7 +24,7 @@ namespace Sportradar_API_1.Controllers
 
         [HttpGet("GetGameById")]
         public Game GetGameById(int id)
-        {
+        {   //ignore
             try
             {
                 using var connection = new MySqlConnection(_configuration.GetConnectionString("Default"));
@@ -49,14 +50,14 @@ namespace Sportradar_API_1.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine($"Exception: {ex.Message}");
                 return new Game();
             }
         }
 
         [HttpGet("GetAllGames")]
         public List<Game> GetAllGames()
-        {
+        {   //ignore
             try
             {
                 List<Game> ListGames = new List<Game>();
@@ -83,14 +84,14 @@ namespace Sportradar_API_1.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine($"Exception: {ex.Message}");
                 return new List<Game>();
             }
         }
 
-        [HttpGet("GetGameWithResultandSeasonById")] 
-        public Game GetGameWithResultandSeasonById(int id)
-        {
+        [HttpGet("GetGameWithSportById")] 
+        public Game GetGameWithSportById(int id)
+        {   //returns single Game with Sport and Season Info by ID
             try
             {
                 using var connection = new MySqlConnection(_configuration.GetConnectionString("Default"));
@@ -141,14 +142,14 @@ namespace Sportradar_API_1.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine($"Exception: {ex.Message}");
                 return new Game();
             }
         }
 
-        [HttpGet("GetAllGamesWithResultandSeason")]
-        public List<Game> GetAllGamesWithResultandSeason()
-        {
+        [HttpGet("GetAllGamesWithSport")]
+        public List<Game> GetAllGamesWithSport()
+        {   //returns List of all Game with Sport and Season Info 
             try
             {
                 List<Game> ListGames = new List<Game>();
@@ -166,7 +167,7 @@ namespace Sportradar_API_1.Controllers
                 var Game = new Game();
                 while (reader.Read())
                 {
-                    var ID = (int)reader.GetValue(0); 
+                    var ID = (int)reader.GetValue(0);
                     var DateTime = (DateTime)reader.GetValue(1);
                     var Date = DateOnly.FromDateTime(DateTime);
                     var StartingTime = TimeOnly.FromTimeSpan((TimeSpan)reader.GetValue(2));
@@ -186,40 +187,69 @@ namespace Sportradar_API_1.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine($"Exception: {ex.Message}");
                 return new List<Game>();
             }
         }
 
         [HttpPost("AddGame")]
-        public bool AddGame(DateOnly? dateofevent, TimeOnly? startingTime, TimeOnly? endTime, string? hometeamslug, string? awayteamslug, int? seasonid, int? resultid, int? sportid)
-        {
+        public bool AddGame(DateOnly dateofevent, TimeOnly startingTime, TimeOnly endTime, string hometeamslug, string awayteamslug, int seasonid, int? resultid, int sportid)
+        {   //Adds Game by insert into mysql table
+            //returns if success then returns true
+            //not success returns false
             try
             {
+                /*
+                using var connection = new MySqlConnection(_configuration.GetConnectionString("Default")); 
+                connection.Open();
+                using var command = new MySqlCommand("INSERT INTO Game (Dateofevent, StartingTime, EndTime, HomeTeam_FK, AwayTeam_FK, Season_FK, Result_FK, Sport_Game_FK) VALUES (@dateofevent, @startingTime, @endTime, @hometeamslug, @awayteamslug, @seasonid, @resultid, @sportid);", connection);
+
+                //Parameter Prepare
+                command.Parameters.AddWithValue("@dateofevent", dateofevent);
+                command.Parameters.AddWithValue("@startingTime", startingTime);
+                command.Parameters.AddWithValue("@endTime", endTime);
+                command.Parameters.AddWithValue("@hometeamslug", hometeamslug);
+                command.Parameters.AddWithValue("@awayteamslug", awayteamslug);
+                command.Parameters.AddWithValue("@seasonid", seasonid);
+                command.Parameters.AddWithValue("@resultid", resultid);
+                command.Parameters.AddWithValue("@sportid", sportid);
+
+
+                command.Prepare();
+                var success = command.ExecuteNonQuery();
+                connection.Close();
+                if (success >= 1)
+                {
+                    Console.WriteLine(true);
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine(false);
+                    return false;
+                }*/
+                Console.WriteLine("dateofevent.ToString" + dateofevent.ToString("yyyy/MM/dd"));
+
                 using var connection = new MySqlConnection(_configuration.GetConnectionString("Default"));
                 connection.Open();
                 using var command = new MySqlCommand("INSERT INTO Game (Dateofevent, StartingTime, EndTime, HomeTeam_FK, AwayTeam_FK, Season_FK, Result_FK, Sport_Game_FK) VALUES (@dateofevent, @startingTime, @endTime, @hometeamslug, @awayteamslug, @seasonid, @resultid, @sportid);", connection);
 
                 //Parameter Prepare
-                MySqlParameter Dateofevent = new MySqlParameter("@dateofevent", MySqlDbType.Date);
-                command.Parameters.AddWithValue("@dateofevent", dateofevent);
-                MySqlParameter StartingTime = new MySqlParameter("@startingTime", MySqlDbType.Time);
+                Console.WriteLine(dateofevent);
+                Console.WriteLine(dateofevent.ToString("yyyy-MM-dd"));
+                command.Parameters.AddWithValue("@dateofevent", dateofevent.ToString("yyyy-MM-dd"));
                 command.Parameters.AddWithValue("@startingTime", startingTime);
-                MySqlParameter EndTime = new MySqlParameter("@endTime", MySqlDbType.Time);
                 command.Parameters.AddWithValue("@endTime", endTime);
-                MySqlParameter Hometeamslug = new MySqlParameter("@hometeamslug", MySqlDbType.VarChar, 256);
                 command.Parameters.AddWithValue("@hometeamslug", hometeamslug);
-                MySqlParameter Awayteamslug = new MySqlParameter("@awayteamslug", MySqlDbType.VarChar, 256);
                 command.Parameters.AddWithValue("@awayteamslug", awayteamslug);
-                MySqlParameter Seasonid = new MySqlParameter("@seasonid", MySqlDbType.Int32);
                 command.Parameters.AddWithValue("@seasonid", seasonid);
-                MySqlParameter Resultid = new MySqlParameter("@resultid", MySqlDbType.Int32);
                 command.Parameters.AddWithValue("@resultid", resultid);
-                MySqlParameter Sportid = new MySqlParameter("@sportid", MySqlDbType.Int32);
                 command.Parameters.AddWithValue("@sportid", sportid);
 
                 command.Prepare();
                 int success = command.ExecuteNonQuery();
+                connection.Close();
+
                 if (success == 0)
                 {
                     return false;
@@ -229,12 +259,11 @@ namespace Sportradar_API_1.Controllers
                     return true;
                 }
 
-                connection.Close();
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine($"Exception: {ex.Message}");
                 return false;
             }
 

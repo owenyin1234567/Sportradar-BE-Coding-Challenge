@@ -1,3 +1,5 @@
+var Gamelistitem;
+
 function sortTable(columnIndex) {
   const table = document.getElementById("Game-list");
   const tbody = table.querySelector("tbody");
@@ -34,3 +36,54 @@ function sortTable(columnIndex) {
 }
 
    
+document.onreadystatechange = function (e) {
+  if (document.readyState === 'complete') {
+    Gamelistitem = document.querySelectorAll(".Game-list-item");
+  }
+}
+
+async function GetAllGamesLoaded() {
+
+  console.log('GetAllGamesLoaded')
+  try {
+    var options = {
+      method: 'GET',
+      url: 'https://localhost:7135/api/Game/GetAllGamesWithSport',
+      headers: 
+      {
+        "Access-Control-Allow-Origin": "*"
+      }
+    }  
+    var res = await axios.request(options);
+
+    // Parse JSON data
+    console.log('res', res.data)
+
+    // Get the table body
+    const tableBody = document.querySelector("tbody");
+    tableBody.innerHTML = ""; // Clear existing rows
+
+    const dayNames = [ "Monday", "Tuesday", "Wednesday" ,"Thursday", "Friday", "Saturday","Sunday"];
+
+    // Populate table with data
+    games = res.data;
+    games.forEach(game => {
+        const row = document.createElement("tr");
+        const date = new Date(game.dateofevent);
+        const day = date.getDay();
+        console.log(dayNames[day])
+        row.innerHTML = `
+            <td>${dayNames[day]+"; "+game.dateofevent || "N/A"}</td>
+            <td>${game.startingTime || "N/A"}</td>
+            <td>${game.endTime || "N/A"}</td>
+            <td>${game.homeTeam.name || "N/A"}</td>
+            <td>${game.awayTeam.name || "N/A"}</td>
+            <td>${game.sport_Game.name || "N/A"}</td>
+        `;
+
+        tableBody.appendChild(row)
+  })}
+  catch (err) {
+    console.error(err);
+  }
+}
